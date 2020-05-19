@@ -15,10 +15,10 @@
                             |                           |                                |          
                             |                           |                                |          
    tableView.reloadData()   |                           |                                |          
--------------------------->+++                          |                                |          
+-------------------------> +++                          |                                |          
                            | |       dataSource         |                                |          
                            | |      .cellForRow()       |     sectionProvider            |          
-                           | |----------------------->+-+-+     .heightForRowAt(         |          
+                           | |----------------------> +-+-+     .heightForRowAt(         |          
                            | |                        |   |       tableView,             |          
                            | |                        |   |       At: indexPath.row)     |          
                            | |                        |   |--------------------------> +-+-+        
