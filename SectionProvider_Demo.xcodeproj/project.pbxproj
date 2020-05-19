@@ -13,6 +13,10 @@
 		A7B783E42473D7D4000D90F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B783E22473D7D4000D90F8 /* Main.storyboard */; };
 		A7B783E62473D7D5000D90F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B783E52473D7D5000D90F8 /* Assets.xcassets */; };
 		A7B783E92473D7D5000D90F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B783E72473D7D5000D90F8 /* LaunchScreen.storyboard */; };
+		A7B783F22473D819000D90F8 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B783F12473D819000D90F8 /* TableView.swift */; };
+		A7B783F42473D870000D90F8 /* AutoLayout+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B783F32473D870000D90F8 /* AutoLayout+.swift */; };
+		A7B783F62473D98F000D90F8 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B783F52473D98F000D90F8 /* TitleCell.swift */; };
+		A7B783F92473DB60000D90F8 /* SectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B783F82473DB60000D90F8 /* SectionProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A7B783E52473D7D5000D90F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7B783E82473D7D5000D90F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7B783EA2473D7D5000D90F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7B783F12473D819000D90F8 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		A7B783F32473D870000D90F8 /* AutoLayout+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+.swift"; sourceTree = "<group>"; };
+		A7B783F52473D98F000D90F8 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		A7B783F82473DB60000D90F8 /* SectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +67,32 @@
 				A7B783DC2473D7D4000D90F8 /* AppDelegate.swift */,
 				A7B783DE2473D7D4000D90F8 /* SceneDelegate.swift */,
 				A7B783E02473D7D4000D90F8 /* ViewController.swift */,
+				A7B783F72473DB4E000D90F8 /* SectionProviders */,
+				A7B783F02473D80C000D90F8 /* TableView */,
 				A7B783E22473D7D4000D90F8 /* Main.storyboard */,
 				A7B783E52473D7D5000D90F8 /* Assets.xcassets */,
 				A7B783E72473D7D5000D90F8 /* LaunchScreen.storyboard */,
 				A7B783EA2473D7D5000D90F8 /* Info.plist */,
 			);
 			path = SectionProvider_Demo;
+			sourceTree = "<group>";
+		};
+		A7B783F02473D80C000D90F8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				A7B783F12473D819000D90F8 /* TableView.swift */,
+				A7B783F52473D98F000D90F8 /* TitleCell.swift */,
+				A7B783F32473D870000D90F8 /* AutoLayout+.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		A7B783F72473DB4E000D90F8 /* SectionProviders */ = {
+			isa = PBXGroup;
+			children = (
+				A7B783F82473DB60000D90F8 /* SectionProvider.swift */,
+			);
+			path = SectionProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B783F62473D98F000D90F8 /* TitleCell.swift in Sources */,
 				A7B783E12473D7D4000D90F8 /* ViewController.swift in Sources */,
+				A7B783F42473D870000D90F8 /* AutoLayout+.swift in Sources */,
+				A7B783F92473DB60000D90F8 /* SectionProvider.swift in Sources */,
+				A7B783F22473D819000D90F8 /* TableView.swift in Sources */,
 				A7B783DD2473D7D4000D90F8 /* AppDelegate.swift in Sources */,
 				A7B783DF2473D7D4000D90F8 /* SceneDelegate.swift in Sources */,
 			);

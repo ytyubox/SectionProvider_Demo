@@ -8,13 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+  let tableView:UITableView = TableView(frame: .zero, style: .plain)
+  let model: [UITableViewSectionProvider] = [
+    
+  ]
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    viewFullyEmbed(view, tableView)
+    tableView.delegate = self
+    tableView.dataSource = self
   }
-
-
+  func numberOfSections(in tableView: UITableView) -> Int {
+    model.count
+  }
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    model[section].numberOfRowsIn(tableView)
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    model[indexPath.section].cellForRowAt(tableView, index: indexPath.row)
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    model[indexPath.section].heightForRowAt(tableView, At: indexPath.row)
+  }
 }
+
 
