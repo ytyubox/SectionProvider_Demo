@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
-func viewFullyEmbed(_ v1:UIView, _ v2: UIView) {
-  v2.translatesAutoresizingMaskIntoConstraints = false
-  v1.addSubview(v2)
-  v1.topAnchor.constraint(equalTo: v2.topAnchor).isActive = true
-  v1.leadingAnchor.constraint(equalTo: v2.leadingAnchor).isActive = true
-  v1.trailingAnchor.constraint(equalTo: v2.trailingAnchor).isActive = true
-  v1.bottomAnchor.constraint(equalTo: v2.bottomAnchor).isActive = true
+extension UIView {
+  func anchorToSuperSiew(superview: UIView) {
+    self.translatesAutoresizingMaskIntoConstraints = false
+    superview.addSubview(self)
+    superview.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+    superview.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+    superview.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    superview.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+  }
 }

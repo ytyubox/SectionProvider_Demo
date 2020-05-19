@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   ]
   override func viewDidLoad() {
     super.viewDidLoad()
-    viewFullyEmbed(view, tableView)
+    tableView.anchorToSuperSiew(superview: view)
     tableView.delegate = self
     tableView.dataSource = self
   }
