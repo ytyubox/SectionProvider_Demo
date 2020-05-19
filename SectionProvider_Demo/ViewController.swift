@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   let tableView:UITableView = TableView(frame: .zero, style: .plain)
-  let model: [UITableViewSectionProvider] = [
+  let model: [AnyUITableViewSectionProvider] = [
     
   ]
   override func viewDidLoad() {
