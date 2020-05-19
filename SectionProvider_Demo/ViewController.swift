@@ -11,27 +11,30 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   let tableView:UITableView = TableView(frame: .zero, style: .plain)
-  let model: [AnyUITableViewSectionProvider] = [
-    
+  let models: [AnyUITableViewSectionProvider] = [
+    NumbersModel()
   ]
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.anchorToSuperSiew(superview: view)
     tableView.delegate = self
     tableView.dataSource = self
+    models.forEach{
+      $0.registTo(tableView)
+    }
   }
   func numberOfSections(in tableView: UITableView) -> Int {
-    model.count
+    models.count
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    model[section].numberOfRowsIn(tableView)
+    models[section].numberOfRowsIn(tableView)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    model[indexPath.section].cellForRowAt(tableView, index: indexPath.row)
+    models[indexPath.section].cellForRowAt(tableView, indexPath: indexPath)
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    model[indexPath.section].heightForRowAt(tableView, At: indexPath.row)
+    models[indexPath.section].heightForRowAt(tableView, At: indexPath.row)
   }
 }
 

@@ -7,12 +7,12 @@
 //
 
 import UIKit
-protocol TitleCellDisplayable { var title:String {get}}
-class TitleCell: UITableViewCell {
-  override func prepareForReuse() {
-    label.text = cellInfo.title
+struct TitleCellDisplayable { var title:String }
+class TitleCell: UITableViewCell, ClassIDProvider {
+  
+  var cellInfo:TitleCellDisplayable! {
+    didSet {label.text = cellInfo.title}
   }
-  var cellInfo:TitleCellDisplayable!
   private let label: UILabel
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     label = UILabel()

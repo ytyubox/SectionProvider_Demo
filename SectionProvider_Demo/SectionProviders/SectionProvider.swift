@@ -12,16 +12,24 @@ protocol SectionProvider {
 }
 
 protocol AnyUITableViewSectionProvider:SectionProvider {
+  func registTo(_ tableView: UITableView)
   func numberOfRowsIn(_ tableView: UITableView) -> Int
-  func cellForRowAt(_ tableView: UITableView,  index: Int) -> UITableViewCell
+  func cellForRowAt(_ tableView: UITableView,  indexPath: IndexPath) -> UITableViewCell
   func heightForRowAt(_ tableView: UITableView, At index: Int) -> CGFloat
 }
 
 protocol UITableViewSectionProvider: AnyUITableViewSectionProvider {
   associatedtype Item
-  associatedtype Cell: UITableViewCell
+  associatedtype Cell: UITableViewCell & ClassIDProvider
   var items: [Item] {get set}
-  
+}
+extension UITableViewSectionProvider {
+  func numberOfRowsIn(_ tableView: UITableView) -> Int {
+    items.count
+  }
+  func registTo(_ tableView: UITableView) {
+    tableView.register(Cell.self, forCellReuseIdentifier: Cell.id())
+  }
 }
 
 protocol ClassIDProvider:AnyObject {
@@ -29,10 +37,8 @@ protocol ClassIDProvider:AnyObject {
 }
 
 func _classIDProvider<T:AnyObject>(_ t:T.Type) -> String {
-  let fullName = NSStringFromClass(t)
-  
-  // this splits by the dot and uses everything after, giving "MyViewController"
-  return fullName.components(separatedBy: ".")[1]
+  let fullName = "\(t)"
+  return fullName.components(separatedBy: ".").last!
   
 }
 
