@@ -13,7 +13,7 @@ struct NumberData {
 }
 
 class NumbersModel {
-  var numbers = (0...100).map(NumberData.init(value: ))
+  var numbers = (0...10).map(NumberData.init(value: ))
 }
 
 extension NumbersModel: UITableViewSectionProvider {
@@ -33,9 +33,8 @@ extension NumbersModel: UITableViewSectionProvider {
   
  
   func cellForRowAt(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id(), for: indexPath) as! Cell
+    let cell = getCell(tableView, indexPath: indexPath)
     let item = items[indexPath.row].value
-    print(cell.description, item)
     cell.cellInfo = .init(title: item.description)
     return cell
   }

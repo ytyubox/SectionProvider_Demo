@@ -20,16 +20,25 @@ protocol AnyUITableViewSectionProvider:SectionProvider {
 
 protocol UITableViewSectionProvider: AnyUITableViewSectionProvider {
   associatedtype Item
-  associatedtype Cell: UITableViewCell & ClassIDProvider
+  associatedtype Cell: UITableViewCell & ClassIDProvider & HeightProvider
   var items: [Item] {get set}
 }
 extension UITableViewSectionProvider {
+  func getCell(_ tableView: UITableView, indexPath: IndexPath) -> Cell {
+    tableView.dequeueReusableCell(withIdentifier: Cell.id(), for: indexPath) as! Cell
+  }
   func numberOfRowsIn(_ tableView: UITableView) -> Int {
     items.count
   }
   func registTo(_ tableView: UITableView) {
     tableView.register(Cell.self, forCellReuseIdentifier: Cell.id())
   }
+  func heightForRowAt(_ tableView: UITableView, At index: Int) -> CGFloat {
+    return Cell.height()
+  }
+}
+protocol HeightProvider:AnyObject {
+  static func height() -> CGFloat
 }
 
 protocol ClassIDProvider:AnyObject {

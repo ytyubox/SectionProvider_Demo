@@ -8,7 +8,11 @@
 
 import UIKit
 struct TitleCellDisplayable { var title:String }
-class TitleCell: UITableViewCell, ClassIDProvider {
+class TitleCell: UITableViewCell, ClassIDProvider, HeightProvider {
+  static func height() -> CGFloat {
+    50
+  }
+  
   
   var cellInfo:TitleCellDisplayable! {
     didSet {label.text = cellInfo.title}

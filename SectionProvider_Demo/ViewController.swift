@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-  let tableView:UITableView = TableView(frame: .zero, style: .plain)
+  let tableView:UITableView = TableView(frame: .zero, style: .insetGrouped)
   let models: [AnyUITableViewSectionProvider] = [
-    NumbersModel()
+    NumbersModel(),
+    ASCIIModel()
   ]
   override func viewDidLoad() {
     super.viewDidLoad()
